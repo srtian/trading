@@ -2,7 +2,24 @@
 
 自用的 ETF 决策系统：风险预算 × 波动目标 × 趋势强度 × 缓冲区。每个交易日由 GitHub Actions 自动计算，信号文件提交在 `signals/` 下。
 
-规则写在 [`PREREGISTRATION.md`](PREREGISTRATION.md) 和 [`config/portfolio.yaml`](config/portfolio.yaml)。网站（GitHub Pages）在下一批交付。
+规则写在 [`PREREGISTRATION.md`](PREREGISTRATION.md) 和 [`config/portfolio.yaml`](config/portfolio.yaml)。网站：<https://srtian.github.io/trading/>（GitHub Pages）。
+
+## 一次性设置
+
+1. **启用网站**：Settings → Pages → Build and deployment → Source 选 **GitHub Actions**。
+2. **生成第一份研究结果**：Actions → Research → Run workflow（约 10 分钟；之后每周六自动运行）。
+3. （可选）Issues → Labels 新建标签 `add-etf`。不建也可以：标题以“添加 ETF”开头的 Issue 同样会被处理。
+4. （可选）把原始数据长期保存到私有仓库：新建私有仓库，在本仓库 Settings → Secrets 设置 `DATA_REPO`（如 `srtian/trading-data`）和 `DATA_REPO_TOKEN`（对该仓库有写权限的 fine-grained token）。
+
+## 网站五个页面
+
+| 页面 | 内容 |
+| --- | --- |
+| 今日决策 | 每只资产从风险预算到最终仓位的逐层计算、缓冲区、是否需要交易；信号来源的代码、配置、数据指纹 |
+| 证据 | 预注册假设 H1～H3、对照组、证据卡（含反方文献）、候选改动的样本外检验、PTNQ 实盘对照、参数网格 |
+| 模型跟踪 | 净值、回撤、3 年滚动夏普、风险仓位、各资产趋势强度、信号记录 |
+| 数据健康 | 每条序列的闸门结果、时效、双源对账 |
+| 添加 ETF | 通过 Issue 表单申请；只处理仓库主人的 Issue，Actions 校验后建分支，由你决定是否合并 |
 
 ## 公开与私密
 
@@ -29,7 +46,9 @@
 | 汇率 FRED vs Yahoo 对账 | 每天在健康报告中输出 |
 | 与 pysystemtrade 原代码逐日对照 | 待在本机运行 `tools/compare_pysystemtrade.py` |
 | 与发行商年度总收益对账 | 待补 `reference/issuer_annual_returns.csv` |
-| PTNQ 实盘对照 | 下一批 |
+| PTNQ 实盘对照 | 研究工作流在线运行（门槛：模拟与实盘年化差 ≤ 0.5%） |
+| 候选改动的样本外检验 | 离线：波动衰减、缓冲区 20% 均未通过，不采纳 |
+| 网站页面不含金额 | 测试检查 |
 
 ## 本地运行
 
@@ -55,8 +74,11 @@ etflab/data/       数据源、税后总收益、汇率拼接、质量闸门、�
 etflab/engine/     指标（pysystemtrade 口径）、仓位与归因、回测、统计检验
 etflab/pipeline.py 每日流程与信号文件
 tests/             无前视、黄金样本、性质测试、端到端
-tools/             本机对照脚本
+etflab/research.py 假设检验、网格、样本外检验、PTNQ 对照、证据卡
+etflab/site.py     静态网站（服务端 SVG 图表，适配手机与深色模式）
+tools/             本机对照脚本、“添加 ETF”处理脚本
 signals/           每日信号（由 Actions 提交）
+research/          每周研究结果（由 Actions 提交）
 ```
 
 不构成投资建议，仅供本人研究使用。

@@ -37,7 +37,7 @@ def _raw(args, cfg):
     offline = None
     if args.offline_parquet or args.offline_csv_dir:
         offline = {"parquet": args.offline_parquet, "csv_dir": args.offline_csv_dir}
-    use_store = args.cmd == "daily" or args.no_fetch
+    use_store = args.cmd in ("daily", "research") or args.no_fetch
     return collect_raw(cfg, args.data_dir if use_store else None, offline, fetch=not args.no_fetch)
 
 
@@ -113,7 +113,7 @@ def cmd_targets(cfg, raw, holdings_csv):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="etflab")
-    ap.add_argument("cmd", choices=["daily", "backtest", "validate", "targets"])
+    ap.add_argument("cmd", choices=["daily", "backtest", "validate", "targets", "research", "site"])
     ap.add_argument("--config", default="config/portfolio.yaml")
     ap.add_argument("--data-dir", default="data")
     ap.add_argument("--out", default="signals")
@@ -123,11 +123,33 @@ def main(argv=None):
     ap.add_argument("--offline-parquet", default=None)
     ap.add_argument("--offline-csv-dir", default=None)
     ap.add_argument("--bootstrap", type=int, default=1000)
+    ap.add_argument("--research-dir", default="research")
+    ap.add_argument("--site-dir", default="_site")
     args = ap.parse_args(argv)
     pd.set_option("display.width", 200)
     pd.set_option("display.unicode.east_asian_width", True)
+    ap_site = args.cmd == "site"
     cfg = load_config(args.config)
+    if ap_site:
+        from .site import build_site
+        out = build_site(cfg, signals_dir=args.out, research_dir=args.research_dir, out_dir=args.site_dir)
+        print(f"网站已生成：{out}")
+        return 0
     raw, info = _raw(args, cfg)
+    if args.cmd == "research":
+        from .research import run_research, write_research
+        offline = {"parquet": args.offline_parquet, "csv_dir": args.offline_csv_dir} if (args.offline_parquet or args.offline_csv_dir) else None
+        out, series = run_research(cfg, raw, offline, n_boot=args.bootstrap)
+        write_research(out, series, args.research_dir)
+        for h in out["hypotheses"]:
+            print(h["id"], h["result"], h["detail"])
+        g = out.get("grid") or {}
+        if g:
+            print(f"网格 {g['n']} 组：夏普 {g['sharpe_min']:.2f}～{g['sharpe_max']:.2f}，PBO {g['pbo']:.0%}，DSR {g['dsr']:.0%}")
+        for c in out["candidates"]:
+            print("候选", c["name"], c["verdict"], [(m["market"], m.get("sharpe_base"), m.get("sharpe_candidate")) for m in c["markets"]])
+        print("PTNQ", (out.get("ptnq") or {}).get("status"), (out.get("ptnq") or {}).get("gap"))
+        return 0
     if args.cmd == "daily":
         from .pipeline import build_signal, default_asof, write_outputs
         asof = pd.Timestamp(args.asof) if args.asof else default_asof(cfg.get("schedule_calendar", "XNYS"))

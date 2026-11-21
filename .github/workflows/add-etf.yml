@@ -1,0 +1,58 @@
+name: Add ETF
+
+# 只处理仓库主人自己提交的“添加 ETF”Issue。Issue 内容是不可信输入：只经环境变量传入 Python，不拼进 shell。
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  add:
+    # 标签需要先在仓库里建好才会自动加上；用标题前缀兜底
+    if: (contains(github.event.issue.labels.*.name, 'add-etf') || startsWith(github.event.issue.title, '添加 ETF')) && github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e .
+
+      - name: Validate and edit config
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: python tools/add_etf.py
+
+      - name: Push branch
+        id: push
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          if [ "$(jq -r .ok add_etf_result.json)" != "true" ]; then echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          ID="$(jq -r .id add_etf_result.json)"
+          BRANCH="add-etf/${ID}-${ISSUE_NUMBER}"
+          git config user.name "etflab-bot"
+          git config user.email "etflab-bot@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add config/portfolio.yaml
+          git commit -m "添加 ETF：${ID}（#${ISSUE_NUMBER}）"
+          git push -f origin "$BRANCH"
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          BRANCH: ${{ steps.push.outputs.branch }}
+        run: |
+          if [ "${{ steps.push.outputs.ok }}" = "true" ]; then
+            printf '\n\n校验通过，已建好分支。[点这里创建合并请求](https://github.com/%s/compare/main...%s?expand=1)，确认后合并即生效。\n' "$GITHUB_REPOSITORY" "$BRANCH" >> add_etf_comment.md
+          else
+            printf '\n\n校验未通过，配置未修改。修改 Issue 内容后会自动重新校验。\n' >> add_etf_comment.md
+          fi
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file add_etf_comment.md

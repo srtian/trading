@@ -1,0 +1,57 @@
+name: Research
+
+# 每周六 03:00 UTC（新加坡 11:00）：预注册假设检验、参数网格、候选改动的样本外检验、PTNQ 对照
+on:
+  schedule:
+    - cron: "0 3 * * 6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writer
+  cancel-in-progress: false
+
+env:
+  DATA_REPO: ${{ secrets.DATA_REPO }}
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e .
+
+      - name: Checkout private data repo
+        if: env.DATA_REPO != ''
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.DATA_REPO }}
+          token: ${{ secrets.DATA_REPO_TOKEN }}
+          path: data
+
+      - name: Restore data cache
+        if: env.DATA_REPO == ''
+        uses: actions/cache@v4
+        with:
+          path: data
+          key: raw-data-${{ github.run_id }}
+          restore-keys: raw-data-
+
+      - name: Run research
+        run: python -m etflab research --config config/portfolio.yaml --data-dir data --research-dir research --bootstrap 2000
+
+      - name: Commit research
+        run: |
+          git config user.name "etflab-bot"
+          git config user.email "etflab-bot@users.noreply.github.com"
+          git add research
+          git diff --cached --quiet || git commit -m "research: $(date -u +%F)"
+          git pull --rebase --autostash origin main
+          git push
