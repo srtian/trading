@@ -1,0 +1,56 @@
+name: 添加 ETF
+description: 申请把一只 ETF 加入观察列表或组合（由 Actions 校验数据后生成修改分支）
+title: "添加 ETF："
+labels: ["add-etf"]
+body:
+  - type: input
+    id: symbol
+    attributes:
+      label: 信号代码（Yahoo 代码）
+      description: 用于计算指标的代码，例如 SPY、EWJ、2800.HK、510300.SS、CSPX.L
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: 名称
+      description: 网站上显示的名字，例如 日本股票
+    validations:
+      required: true
+  - type: dropdown
+    id: currency
+    attributes:
+      label: 计价货币
+      options: [USD, SGD, HKD, CNY]
+    validations:
+      required: true
+  - type: input
+    id: withholding
+    attributes:
+      label: 股息预提税率
+      description: 持有你实际下单的标的时的税损比例，例如爱尔兰 UCITS 持美股填 0.15，美国注册 ETF 填 0.30，港股填 0
+      value: "0.15"
+    validations:
+      required: true
+  - type: dropdown
+    id: purpose
+    attributes:
+      label: 用途
+      options: [观察（只算指标，不参与仓位）, 纳入组合（需要填写风险预算，属于规则修改）]
+    validations:
+      required: true
+  - type: input
+    id: weight
+    attributes:
+      label: 风险预算（仅纳入组合时填写）
+      description: 例如 0.125；纳入后各资产的风险预算会自动归一
+  - type: input
+    id: exec
+    attributes:
+      label: 实际下单的标的（可选）
+      description: 逗号分隔，例如 CSPX.L, VUAA.L
+  - type: textarea
+    id: reason
+    attributes:
+      label: 理由
+      description: 为什么加它？纳入组合时请写明它带来的、现有资产没有的收益来源

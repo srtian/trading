@@ -86,6 +86,37 @@ def stationary_bootstrap_sharpe_ci(excess: pd.Series, n_boot: int = 2000, mean_b
     return float(lo), float(hi)
 
 
+def _sb_indices(n: int, rng, mean_block: int) -> np.ndarray:
+    ar = np.arange(n)
+    jumps = rng.random(n) < 1.0 / mean_block
+    jumps[0] = True
+    starts = rng.integers(n, size=n)
+    last = np.maximum.accumulate(np.where(jumps, ar, 0))
+    return (starts[last] + (ar - last)) % n
+
+
+def paired_sharpe_diff_ci(ex_a: pd.Series, ex_b: pd.Series, n_boot: int = 2000, mean_block: int = 20,
+                          alpha: float = 0.05, seed: int = 11) -> dict:
+    """配对平稳块自助法：两条超额收益用同一组重抽样下标，得到年化夏普差（a − b）的置信区间。"""
+    df = pd.concat([ex_a, ex_b], axis=1).dropna()
+    x = df.to_numpy()
+    n = len(x)
+    rng = np.random.default_rng(seed)
+
+    def sh(m):
+        sd = m.std(axis=0)
+        return m.mean(axis=0) / np.where(sd > 0, sd, np.nan) * math.sqrt(ANN)
+
+    point = sh(x)
+    diffs = np.empty(n_boot)
+    for b in range(n_boot):
+        s = sh(x[_sb_indices(n, rng, mean_block)])
+        diffs[b] = s[0] - s[1]
+    lo, hi = np.nanquantile(diffs, [alpha / 2, 1 - alpha / 2])
+    return {"diff": float(point[0] - point[1]), "ci95": [float(lo), float(hi)],
+            "p_le_0": float(np.mean(diffs <= 0)), "n": int(n)}
+
+
 def metrics(nav: pd.Series, weights: pd.DataFrame | None, cash_ret: pd.Series, turnover_py=float("nan")) -> dict:
     r = nav.pct_change().dropna()
     ex = r - cash_ret.reindex(r.index).fillna(0.0)

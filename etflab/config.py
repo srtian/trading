@@ -24,12 +24,27 @@ def exchange_for(symbol: str) -> str:
 def load_config(path: str | Path) -> dict:
     with open(path, encoding="utf-8") as fh:
         cfg = yaml.safe_load(fh)
+    cfg = expand_watchlist(cfg)
     validate_config(cfg)
     return cfg
 
 
+def expand_watchlist(cfg: dict) -> dict:
+    """观察列表并入 assets：风险预算为 0，只计算指标、不参与仓位，数据问题不阻断信号。"""
+    cfg = copy.deepcopy(cfg)
+    for w in cfg.pop("watchlist", None) or []:
+        cfg["assets"].append({**w, "weight": 0.0, "watch": True})
+    return cfg
+
+
+NON_RULE_KEYS = {"site", "research", "validation", "watchlist", "_说明"}
+
+
 def config_hash(cfg: dict) -> str:
-    blob = json.dumps(cfg, sort_keys=True, ensure_ascii=False, default=str).encode()
+    """只对"规则"部分取指纹：网站、研究、网格设置和观察列表的变化不改变指纹。"""
+    rules = {k: v for k, v in cfg.items() if k not in NON_RULE_KEYS}
+    rules["assets"] = [a for a in cfg.get("assets", []) if not a.get("watch")]
+    blob = json.dumps(rules, sort_keys=True, ensure_ascii=False, default=str).encode()
     return hashlib.sha256(blob).hexdigest()
 
 

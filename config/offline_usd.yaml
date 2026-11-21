@@ -100,4 +100,38 @@ quality:
   max_abs_return: 0.25
   tr_check_max_annual_gap: 0.002
   min_history_rows: 300
+watchlist: []
+validation:
+  grid:
+    sizing.vol_target:
+    - 0.1
+    - 0.12
+    - 0.14
+    rebalance.buffer:
+    - 0.05
+    - 0.1
+    - 0.2
+    trend.attenuation:
+    - false
+    - true
+research:
+  oos_markets:
+  - symbol: SPY
+    withholding: 0.15
+  - symbol: EFA
+    withholding: 0.15
+  - symbol: EWJ
+    withholding: 0.15
+  candidates:
+  - name: 开启波动衰减
+    change:
+      trend.attenuation: true
+  - name: 缓冲区 20%
+    change:
+      rebalance.buffer: 0.2
+  ptnq:
+    symbol: PTNQ
+    underlying_asset: nasdaq100
+    fee: 0.0065
+    start: '2015-06-12'
 _说明: 离线复核配置：离线数据集没有汇率和A股，用美元基准、EWH代港股、SHY代现金。仅用于在无网络环境复现结果。

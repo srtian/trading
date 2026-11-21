@@ -108,3 +108,35 @@ quality:
   max_abs_return: 0.25      # 单日涨跌超过 25% 且当天无拆股/分红 → 失败
   tr_check_max_annual_gap: 0.002   # 自建毛总收益 vs 供应商复权价：年化差 > 0.2% → 警告
   min_history_rows: 300
+
+# 观察列表：只计算指标并在网站展示，不参与仓位；可通过仓库 Issue 表单添加
+watchlist: []
+#  - id: spy
+#    name: 标普500
+#    signal: {source: yahoo, symbol: SPY}
+#    currency: USD
+#    dividend_withholding: 0.15
+
+# 参数网格（研究层与 validate 共用）
+validation:
+  grid:
+    sizing.vol_target: [0.10, 0.12, 0.14]
+    rebalance.buffer: [0.05, 0.10, 0.20]
+    trend.attenuation: [false, true]
+
+research:
+  # 候选改动只在这些"未使用过的市场"上全部同向时才可提交采纳（PREREGISTRATION 第 4 节）
+  oos_markets:
+    - {symbol: SPY, withholding: 0.15}
+    - {symbol: EFA, withholding: 0.15}
+    - {symbol: EWJ, withholding: 0.15}
+  candidates:
+    - name: 开启波动衰减
+      change: {trend.attenuation: true}
+    - name: 缓冲区 20%
+      change: {rebalance.buffer: 0.2}
+  ptnq: {symbol: PTNQ, underlying_asset: nasdaq100, fee: 0.0065, start: "2015-06-12"}
+
+# 网站
+site:
+  repo: srtian/trading

@@ -13,8 +13,13 @@ import pandas as pd
 @lru_cache(maxsize=16)
 def _cal(code: str):
     import exchange_calendars as xcals
-    # 默认只加载最近 20 年，回测需要更早的交易日
-    return xcals.get_calendar(code, start="1990-01-02")
+    # 默认只加载最近 20 年，回测需要更早的交易日；部分交易所（如上交所）的假期记录从更晚的年份开始
+    for start in ("1990-01-02", "1992-01-02", "2000-01-03", None):
+        try:
+            return xcals.get_calendar(code, start=start) if start else xcals.get_calendar(code)
+        except Exception:  # noqa: BLE001
+            continue
+    raise ValueError(f"无法加载交易所日历 {code}")
 
 
 def sessions(code: str, start, end) -> pd.DatetimeIndex:
