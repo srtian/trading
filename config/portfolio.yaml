@@ -1,0 +1,110 @@
+# 组合配置（与 PREREGISTRATION.md 一同冻结；冻结后任何修改都要在 PREREGISTRATION.md 的变更记录里登记）
+version: 1
+base_currency: SGD          # 所有收益、波动、回撤按新元计算
+schedule_calendar: XNYS     # 调仓日历：以纽交所交易日判断月末
+start: "1999-01-01"
+
+# 资产：signal 用于计算（历史长、流动性好）；exec 是实际下单的标的（仅展示）
+# dividend_withholding：持有 exec 标的时，signal 标的股息的实际税损比例（新加坡税务居民）
+#   - 爱尔兰 UCITS 持有美股：基金层面约 15%
+#   - 爱尔兰 UCITS 持有美债：利息一般不被预扣，记 0
+#   - 港股 ETF：香港不征股息预扣税，记 0
+#   - A 股 ETF：按 10% 估计，需按你的账户类型核实
+# weight：风险预算（不是资金比例），在可用资产之间自动归一
+assets:
+  - id: nasdaq100
+    name: 纳指100
+    signal: {source: yahoo, symbol: QQQ}
+    exec: ["CNDX.L", "XND.SI"]
+    currency: USD
+    dividend_withholding: 0.15
+    weight: 0.25
+  - id: csi300
+    name: A股沪深300
+    signal: {source: yahoo, symbol: 510300.SS}
+    exec: ["510300", "A500 ETF"]
+    currency: CNY
+    dividend_withholding: 0.10
+    weight: 0.125
+  - id: hsi
+    name: 港股恒指
+    signal: {source: yahoo, symbol: 2800.HK}
+    exec: ["2800.HK"]
+    currency: HKD
+    dividend_withholding: 0.0
+    weight: 0.125
+  - id: ust_long
+    name: 美国长债
+    signal: {source: yahoo, symbol: TLT}
+    exec: ["IDTL.L"]
+    currency: USD
+    dividend_withholding: 0.0
+    weight: 0.25
+  - id: gold
+    name: 黄金
+    signal: {source: yahoo, symbol: GLD}
+    exec: ["O87.SI", "IGLN.L"]
+    currency: USD
+    dividend_withholding: 0.0
+    weight: 0.25
+
+cash:
+  id: usd_tbill
+  name: 美元短期国债
+  signal: {source: yahoo, symbol: BIL}
+  fallback_rate: {source: fred, series: DTB3}   # BIL 上市前用 3 个月国库券利率（年化 %）
+  exec: ["IB01.L"]
+  currency: USD
+  dividend_withholding: 0.0
+
+# 汇率：每 1 美元兑多少该货币。
+# history：FRED（美联储 H.10，历史长，但每周才更新）；recent：Yahoo（补最近几天，并在重叠区间做双源对账）
+fx:
+  SGD:
+    history: {source: fred, series: DEXSIUS}
+    recent: {source: yahoo, symbol: "SGD=X"}
+  HKD:
+    history: {source: fred, series: DEXHKUS}
+    recent: {source: yahoo, symbol: "HKD=X"}
+  CNY:
+    history: {source: fred, series: DEXCHUS}
+    recent: {source: yahoo, symbol: "CNY=X"}
+
+vol:
+  span: 35
+  min_periods: 10
+  slow_years: 20            # pysystemtrade mixed_vol_calc：长期部分为 20 年 EWMA
+  slow_weight: 0.3
+  business_days_per_year: 256
+
+trend:
+  method: ewmac             # ewmac | sma_vote | none
+  speeds: [[16, 64], [32, 128], [64, 256]]
+  scalars: [3.75, 2.65, 1.87]
+  fdm: 1.05
+  cap: 20
+  long_only: true
+  attenuation: false
+  sma_windows: [50, 100, 200]
+  price_vol_floor: true     # pysystemtrade robust_vol_calc 的 5% 分位下限
+
+sizing:
+  vol_target: 0.12
+  idm: estimate
+  idm_max: 2.5
+  corr_min_weeks: 104
+  corr_default: 0.5
+  max_weight: 0.5
+  max_total: 1.0
+
+rebalance:
+  freq: M
+  buffer: 0.10
+  cost_bps: 10
+  exec_lag: 1
+
+quality:
+  stale_sessions: 3         # 最新数据落后于该交易所最新交易日超过 N 个交易日 → 失败
+  max_abs_return: 0.25      # 单日涨跌超过 25% 且当天无拆股/分红 → 失败
+  tr_check_max_annual_gap: 0.002   # 自建毛总收益 vs 供应商复权价：年化差 > 0.2% → 警告
+  min_history_rows: 300

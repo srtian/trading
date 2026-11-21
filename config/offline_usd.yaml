@@ -1,0 +1,103 @@
+version: 1
+base_currency: USD
+schedule_calendar: XNYS
+start: '1999-01-01'
+assets:
+- id: nasdaq100
+  name: 纳指100
+  signal:
+    source: yahoo
+    symbol: QQQ
+  exec:
+  - CNDX.L
+  - XND.SI
+  currency: USD
+  dividend_withholding: 0.15
+  weight: 0.25
+- id: hsi
+  name: 港股恒指
+  signal:
+    source: yahoo
+    symbol: EWH
+  exec:
+  - 2800.HK
+  currency: USD
+  dividend_withholding: 0.0
+  weight: 0.125
+- id: ust_long
+  name: 美国长债
+  signal:
+    source: yahoo
+    symbol: TLT
+  exec:
+  - IDTL.L
+  currency: USD
+  dividend_withholding: 0.0
+  weight: 0.25
+- id: gold
+  name: 黄金
+  signal:
+    source: yahoo
+    symbol: GLD
+  exec:
+  - O87.SI
+  - IGLN.L
+  currency: USD
+  dividend_withholding: 0.0
+  weight: 0.25
+cash:
+  id: ust_short
+  name: 美国短债(SHY代现金)
+  signal:
+    source: yahoo
+    symbol: SHY
+  currency: USD
+  dividend_withholding: 0.0
+fx: {}
+vol:
+  span: 35
+  min_periods: 10
+  slow_years: 20
+  slow_weight: 0.3
+  business_days_per_year: 256
+trend:
+  method: ewmac
+  speeds:
+  - - 16
+    - 64
+  - - 32
+    - 128
+  - - 64
+    - 256
+  scalars:
+  - 3.75
+  - 2.65
+  - 1.87
+  fdm: 1.05
+  cap: 20
+  long_only: true
+  attenuation: false
+  sma_windows:
+  - 50
+  - 100
+  - 200
+  price_vol_floor: true
+sizing:
+  vol_target: 0.12
+  idm: estimate
+  idm_max: 2.5
+  corr_min_weeks: 104
+  corr_default: 0.5
+  max_weight: 0.5
+  max_total: 1.0
+rebalance:
+  freq: M
+  buffer: 0.1
+  cost_bps: 10
+  exec_lag: 1
+quality:
+  stale_sessions: 3
+  max_abs_return: 0.25
+  tr_check_max_annual_gap: 0.002
+  min_history_rows: 300
+_说明: 离线复核配置：离线数据集没有汇率和A股，用美元基准、EWH代港股、SHY代现金。仅用于在无网络环境复现结果。
