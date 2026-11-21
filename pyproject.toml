@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "etflab"
+version = "0.1.0"
+description = "自用 ETF 风险预算 × 趋势强度 决策系统"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "pyyaml>=6",
+  "exchange_calendars>=4.5",
+  "yfinance>=0.2.50",
+  "pyarrow>=15",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "hypothesis>=6.100"]
+
+[tool.setuptools.packages.find]
+include = ["etflab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::RuntimeWarning"]

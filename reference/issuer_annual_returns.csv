@@ -1,0 +1,3 @@
+symbol,year,total_return_nav,source_url,retrieved_on
+# 每行填发行商官网公布的年度 NAV 总收益（小数，如 0.2551），并附来源链接。
+# 用于与自建毛总收益对账；通过标准：每年误差 <= 0.2%。
