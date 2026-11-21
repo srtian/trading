@@ -7,7 +7,7 @@ build/
 dist/
 
 # 原始行情数据不进公开仓库（供应商条款不允许再分发）；由 Actions 缓存或私有数据仓库保存
-data/
+/data/
 
 # 个人持仓与决策日志只留在本地
 holdings*.csv
