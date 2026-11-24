@@ -1,6 +1,6 @@
 {
- "asof": "2026-11-20",
- "status": "warn",
+ "asof": "2026-11-23",
+ "status": "pass",
  "blocked_by": [],
  "checks": [
   {
@@ -11,27 +11,27 @@
    "warn": [],
    "info": {
     "first": "1999-03-10",
-    "last": "2026-11-20",
-    "rows": 6970,
+    "last": "2026-11-23",
+    "rows": 6971,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.00010218659319860546
+    "tr_vs_vendor_max_annual_gap": 0.0001024883586506764
    },
    "required": true
   },
   {
    "key": "asset:csi300",
    "symbol": "510300.SS",
-   "status": "warn",
+   "status": "pass",
    "fail": [],
-   "warn": [
-    "无法检查时效：The XSHG holidays are only recorded back to the year 1991, cannot instantiate the XSHG calendar from 1990-01-02 00:00:00."
-   ],
+   "warn": [],
    "info": {
     "first": "2012-05-04",
-    "last": "2026-11-20",
-    "rows": 3521,
-    "tr_vs_vendor_max_annual_gap": 0.00039327612600770223
+    "last": "2026-11-24",
+    "rows": 3522,
+    "exchange": "XSHG",
+    "sessions_behind": 0,
+    "tr_vs_vendor_max_annual_gap": 0.0003935159457915116
    },
    "required": true
   },
@@ -43,11 +43,11 @@
    "warn": [],
    "info": {
     "first": "2008-01-02",
-    "last": "2026-11-20",
-    "rows": 4654,
+    "last": "2026-11-24",
+    "rows": 4655,
     "exchange": "XHKG",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.0011221117143545012
+    "tr_vs_vendor_max_annual_gap": 0.0011219398910299327
    },
    "required": true
   },
@@ -59,11 +59,11 @@
    "warn": [],
    "info": {
     "first": "2002-07-30",
-    "last": "2026-11-20",
-    "rows": 6119,
+    "last": "2026-11-23",
+    "rows": 6120,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.0004206743189814066
+    "tr_vs_vendor_max_annual_gap": 0.00042119685414054864
    },
    "required": true
   },
@@ -75,8 +75,8 @@
    "warn": [],
    "info": {
     "first": "2004-11-18",
-    "last": "2026-11-20",
-    "rows": 5537,
+    "last": "2026-11-23",
+    "rows": 5538,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "tr_vs_vendor_max_annual_gap": 3.3306690738754696e-15
@@ -91,11 +91,11 @@
    "warn": [],
    "info": {
     "first": "2007-05-30",
-    "last": "2026-11-20",
-    "rows": 4903,
+    "last": "2026-11-23",
+    "rows": 4904,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 1.5139635396232975e-05
+    "tr_vs_vendor_max_annual_gap": 1.5248368293141468e-05
    },
    "required": true
   },
@@ -107,10 +107,10 @@
    "warn": [],
    "info": {
     "first": "1999-01-04",
-    "last": "2026-11-13",
-    "rows": 6988,
+    "last": "2026-11-20",
+    "rows": 6993,
     "exchange": "XNYS",
-    "sessions_behind": 5
+    "sessions_behind": 1
    },
    "required": true
   },
@@ -122,12 +122,12 @@
    "warn": [],
    "info": {
     "first": "2003-12-01",
-    "last": "2026-11-21",
-    "rows": 5974,
+    "last": "2026-11-24",
+    "rows": 5976,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
-    "median_abs_rel_diff": 0.0014263821162004975,
+    "median_abs_rel_diff": 0.001422846746614026,
     "max_abs_rel_diff": 0.006019800396039665
    },
    "required": true
@@ -140,10 +140,10 @@
    "warn": [],
    "info": {
     "first": "1999-01-04",
-    "last": "2026-11-13",
-    "rows": 6988,
+    "last": "2026-11-20",
+    "rows": 6993,
     "exchange": "XNYS",
-    "sessions_behind": 5
+    "sessions_behind": 1
    },
    "required": true
   },
@@ -155,12 +155,12 @@
    "warn": [],
    "info": {
     "first": "2001-07-16",
-    "last": "2026-11-21",
-    "rows": 6420,
+    "last": "2026-11-24",
+    "rows": 6422,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
-    "median_abs_rel_diff": 0.0001795205602597716,
+    "median_abs_rel_diff": 0.00017859138365683425,
     "max_abs_rel_diff": 0.002017881055180526
    },
    "required": true
@@ -173,10 +173,10 @@
    "warn": [],
    "info": {
     "first": "1999-01-04",
-    "last": "2026-11-13",
-    "rows": 6989,
+    "last": "2026-11-20",
+    "rows": 6994,
     "exchange": "XNYS",
-    "sessions_behind": 5
+    "sessions_behind": 1
    },
    "required": true
   },
@@ -188,8 +188,8 @@
    "warn": [],
    "info": {
     "first": "2001-06-25",
-    "last": "2026-11-21",
-    "rows": 6364,
+    "last": "2026-11-24",
+    "rows": 6366,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
