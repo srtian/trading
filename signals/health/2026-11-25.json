@@ -1,0 +1,205 @@
+{
+ "asof": "2026-11-25",
+ "status": "pass",
+ "blocked_by": [],
+ "checks": [
+  {
+   "key": "asset:nasdaq100",
+   "symbol": "QQQ",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "1999-03-10",
+    "last": "2026-11-25",
+    "rows": 6973,
+    "exchange": "XNYS",
+    "sessions_behind": 0,
+    "tr_vs_vendor_max_annual_gap": 0.00010208330824268419
+   },
+   "required": true
+  },
+  {
+   "key": "asset:csi300",
+   "symbol": "510300.SS",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2012-05-04",
+    "last": "2026-11-26",
+    "rows": 3525,
+    "exchange": "XSHG",
+    "sessions_behind": 0,
+    "tr_vs_vendor_max_annual_gap": 0.0003932733214060402
+   },
+   "required": true
+  },
+  {
+   "key": "asset:hsi",
+   "symbol": "2800.HK",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2008-01-02",
+    "last": "2026-11-26",
+    "rows": 4658,
+    "exchange": "XHKG",
+    "sessions_behind": 0,
+    "tr_vs_vendor_max_annual_gap": 0.0011220255772106391
+   },
+   "required": true
+  },
+  {
+   "key": "asset:ust_long",
+   "symbol": "TLT",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2002-07-30",
+    "last": "2026-11-25",
+    "rows": 6122,
+    "exchange": "XNYS",
+    "sessions_behind": 0,
+    "tr_vs_vendor_max_annual_gap": 0.0004213225383764563
+   },
+   "required": true
+  },
+  {
+   "key": "asset:gold",
+   "symbol": "GLD",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2004-11-18",
+    "last": "2026-11-25",
+    "rows": 5540,
+    "exchange": "XNYS",
+    "sessions_behind": 0,
+    "tr_vs_vendor_max_annual_gap": 3.3306690738754696e-15
+   },
+   "required": true
+  },
+  {
+   "key": "cash:usd_tbill",
+   "symbol": "BIL",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2007-05-30",
+    "last": "2026-11-25",
+    "rows": 4906,
+    "exchange": "XNYS",
+    "sessions_behind": 0,
+    "tr_vs_vendor_max_annual_gap": 1.496083507346313e-05
+   },
+   "required": true
+  },
+  {
+   "key": "fx:SGD:history",
+   "symbol": "DEXSIUS",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "1999-01-04",
+    "last": "2026-11-20",
+    "rows": 6993,
+    "exchange": "XNYS",
+    "sessions_behind": 3
+   },
+   "required": true
+  },
+  {
+   "key": "fx:SGD:recent",
+   "symbol": "SGD=X",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2003-12-01",
+    "last": "2026-11-26",
+    "rows": 5978,
+    "exchange": "XNYS",
+    "sessions_behind": 0,
+    "overlap_days": 250,
+    "median_abs_rel_diff": 0.001422846746614026,
+    "max_abs_rel_diff": 0.006019800396039665
+   },
+   "required": true
+  },
+  {
+   "key": "fx:HKD:history",
+   "symbol": "DEXHKUS",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "1999-01-04",
+    "last": "2026-11-20",
+    "rows": 6993,
+    "exchange": "XNYS",
+    "sessions_behind": 3
+   },
+   "required": true
+  },
+  {
+   "key": "fx:HKD:recent",
+   "symbol": "HKD=X",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2001-07-16",
+    "last": "2026-11-26",
+    "rows": 6424,
+    "exchange": "XNYS",
+    "sessions_behind": 0,
+    "overlap_days": 250,
+    "median_abs_rel_diff": 0.00017859138365683425,
+    "max_abs_rel_diff": 0.002017881055180526
+   },
+   "required": true
+  },
+  {
+   "key": "fx:CNY:history",
+   "symbol": "DEXCHUS",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "1999-01-04",
+    "last": "2026-11-20",
+    "rows": 6994,
+    "exchange": "XNYS",
+    "sessions_behind": 3
+   },
+   "required": true
+  },
+  {
+   "key": "fx:CNY:recent",
+   "symbol": "CNY=X",
+   "status": "pass",
+   "fail": [],
+   "warn": [],
+   "info": {
+    "first": "2001-06-25",
+    "last": "2026-11-26",
+    "rows": 6368,
+    "exchange": "XNYS",
+    "sessions_behind": 0,
+    "overlap_days": 250,
+    "median_abs_rel_diff": 0.0007098248612942282,
+    "max_abs_rel_diff": 0.01004895604315803
+   },
+   "required": true
+  }
+ ],
+ "notes": [
+  "自建毛总收益与供应商复权价的对账只能证明两者口径一致；若供应商复权价本身由同一公式算出，它不构成独立验证。独立验证见 reference/issuer_annual_returns.csv（发行商公布的年度总收益）。"
+ ]
+}
