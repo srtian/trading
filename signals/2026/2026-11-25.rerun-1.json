@@ -1,0 +1,215 @@
+{
+ "asof": "2026-11-25",
+ "base_currency": "SGD",
+ "status": "pass",
+ "provenance": {
+  "generated_at": "2026-11-27T04:14:27+00:00",
+  "code_version": "0.1.0",
+  "git_sha": "2a5cce0d696f24492853bcb978dcfaa6e2c0ae4d",
+  "config_sha256": "f599f6948264447f2f8645c9b1fb95ddbf5c01c75f48110ce18f2ea88a2d0e7c",
+  "data_manifest_sha256": "4e4818b635474f8f4f27c102e704934c40f2c9bca29ae0c2b07cca3c49a16a0b",
+  "data_revisions_found": 5,
+  "python": "3.12.16",
+  "pandas": "3.1.1"
+ },
+ "health_summary": {
+  "status": "pass",
+  "blocked_by": []
+ },
+ "signal_session": "2026-11-25",
+ "is_rebalance_day": false,
+ "action": "非调仓日：只观察，不交易",
+ "next_rebalance_signal_date": "2026-11-30",
+ "idm": 1.86229,
+ "total_scale": 1.0,
+ "target_cash": 1.0,
+ "assets": [
+  {
+   "id": "nasdaq100",
+   "name": "纳指100",
+   "signal_symbol": "QQQ",
+   "exec": [
+    "CNDX.L",
+    "XND.SI"
+   ],
+   "currency": "USD",
+   "risk_budget_input": 0.25,
+   "sigma_annual": 0.366144,
+   "forecast": 0.0,
+   "attribution": {
+    "risk_budget": 0.25,
+    "vol_scaled": 0.152587,
+    "after_trend": 0.0,
+    "after_asset_cap": 0.0,
+    "final": 0.0
+   },
+   "target": 0.0,
+   "buffer_low": 0.0,
+   "buffer_high": 0.015259,
+   "model_current": 0.134755,
+   "model_after_trade": 0.015259,
+   "outside_buffer": true,
+   "withholding_rate": 0.15,
+   "withholding_drag_annual": 0.001026
+  },
+  {
+   "id": "csi300",
+   "name": "A股沪深300",
+   "signal_symbol": "510300.SS",
+   "exec": [
+    "510300",
+    "A500 ETF"
+   ],
+   "currency": "CNY",
+   "risk_budget_input": 0.125,
+   "sigma_annual": 0.156514,
+   "forecast": 0.0,
+   "attribution": {
+    "risk_budget": 0.125,
+    "vol_scaled": 0.178478,
+    "after_trend": 0.0,
+    "after_asset_cap": 0.0,
+    "final": 0.0
+   },
+   "target": 0.0,
+   "buffer_low": 0.0,
+   "buffer_high": 0.017848,
+   "model_current": 0.012404,
+   "model_after_trade": 0.012404,
+   "outside_buffer": false,
+   "withholding_rate": 0.1,
+   "withholding_drag_annual": 0.001573
+  },
+  {
+   "id": "hsi",
+   "name": "港股恒指",
+   "signal_symbol": "2800.HK",
+   "exec": [
+    "2800.HK"
+   ],
+   "currency": "HKD",
+   "risk_budget_input": 0.125,
+   "sigma_annual": 0.195664,
+   "forecast": 0.0,
+   "attribution": {
+    "risk_budget": 0.125,
+    "vol_scaled": 0.142767,
+    "after_trend": 0.0,
+    "after_asset_cap": 0.0,
+    "final": 0.0
+   },
+   "target": 0.0,
+   "buffer_low": 0.0,
+   "buffer_high": 0.014277,
+   "model_current": 0.014321,
+   "model_after_trade": 0.014277,
+   "outside_buffer": true,
+   "withholding_rate": 0.0,
+   "withholding_drag_annual": 0.0
+  },
+  {
+   "id": "ust_long",
+   "name": "美国长债",
+   "signal_symbol": "TLT",
+   "exec": [
+    "IDTL.L"
+   ],
+   "currency": "USD",
+   "risk_budget_input": 0.25,
+   "sigma_annual": 0.115652,
+   "forecast": 0.0,
+   "attribution": {
+    "risk_budget": 0.25,
+    "vol_scaled": 0.483075,
+    "after_trend": 0.0,
+    "after_asset_cap": 0.0,
+    "final": 0.0
+   },
+   "target": 0.0,
+   "buffer_low": 0.0,
+   "buffer_high": 0.048307,
+   "model_current": 0.043051,
+   "model_after_trade": 0.043051,
+   "outside_buffer": false,
+   "withholding_rate": 0.0,
+   "withholding_drag_annual": 0.0
+  },
+  {
+   "id": "gold",
+   "name": "黄金",
+   "signal_symbol": "GLD",
+   "exec": [
+    "O87.SI",
+    "IGLN.L"
+   ],
+   "currency": "USD",
+   "risk_budget_input": 0.25,
+   "sigma_annual": 0.256227,
+   "forecast": 0.0,
+   "attribution": {
+    "risk_budget": 0.25,
+    "vol_scaled": 0.218043,
+    "after_trend": 0.0,
+    "after_asset_cap": 0.0,
+    "final": 0.0
+   },
+   "target": 0.0,
+   "buffer_low": 0.0,
+   "buffer_high": 0.021804,
+   "model_current": 0.022802,
+   "model_after_trade": 0.021804,
+   "outside_buffer": true,
+   "withholding_rate": 0.0,
+   "withholding_drag_annual": 0.0
+  }
+ ],
+ "model_portfolio_backtest": {
+  "start": "2000-03-14",
+  "end": "2026-11-25",
+  "cagr": 0.05837251553516465,
+  "vol": 0.0848420837172285,
+  "sharpe": 0.6448996271196998,
+  "sortino": 0.7918480293357721,
+  "max_drawdown": -0.1401013414151585,
+  "calmar": 0.4166449439066465,
+  "turnover_per_year": 2.153718028028566,
+  "psr_gt0": 0.9995003693031348,
+  "avg_risky_weight": 0.5931002171191517,
+  "sharpe_ci95": [
+   0.302,
+   0.989
+  ]
+ },
+ "last_trades": [
+  {
+   "date": "2026-06-01",
+   "signal_date": "2026-05-29",
+   "turnover": 0.1905
+  },
+  {
+   "date": "2026-07-01",
+   "signal_date": "2026-06-30",
+   "turnover": 0.3484
+  },
+  {
+   "date": "2026-08-03",
+   "signal_date": "2026-07-31",
+   "turnover": 0.1509
+  },
+  {
+   "date": "2026-09-01",
+   "signal_date": "2026-08-31",
+   "turnover": 0.1396
+  },
+  {
+   "date": "2026-10-01",
+   "signal_date": "2026-09-30",
+   "turnover": 0.137
+  },
+  {
+   "date": "2026-11-02",
+   "signal_date": "2026-10-30",
+   "turnover": 0.1629
+  }
+ ]
+}

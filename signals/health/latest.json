@@ -15,7 +15,7 @@
     "rows": 6973,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.00010208330824268419
+    "tr_vs_vendor_max_annual_gap": 0.00010248272903878863
    },
    "required": true
   },
@@ -27,11 +27,11 @@
    "warn": [],
    "info": {
     "first": "2012-05-04",
-    "last": "2026-11-26",
-    "rows": 3525,
+    "last": "2026-11-27",
+    "rows": 3526,
     "exchange": "XSHG",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.0003932733214060402
+    "tr_vs_vendor_max_annual_gap": 0.00039335535597784244
    },
    "required": true
   },
@@ -43,8 +43,8 @@
    "warn": [],
    "info": {
     "first": "2008-01-02",
-    "last": "2026-11-26",
-    "rows": 4658,
+    "last": "2026-11-27",
+    "rows": 4659,
     "exchange": "XHKG",
     "sessions_behind": 0,
     "tr_vs_vendor_max_annual_gap": 0.0011220255772106391
@@ -63,7 +63,7 @@
     "rows": 6122,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.0004213225383764563
+    "tr_vs_vendor_max_annual_gap": 0.0004215000349245823
    },
    "required": true
   },
@@ -95,7 +95,7 @@
     "rows": 4906,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 1.496083507346313e-05
+    "tr_vs_vendor_max_annual_gap": 1.5347467315907082e-05
    },
    "required": true
   },
@@ -122,8 +122,8 @@
    "warn": [],
    "info": {
     "first": "2003-12-01",
-    "last": "2026-11-26",
-    "rows": 5978,
+    "last": "2026-11-27",
+    "rows": 5979,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
@@ -155,8 +155,8 @@
    "warn": [],
    "info": {
     "first": "2001-07-16",
-    "last": "2026-11-26",
-    "rows": 6424,
+    "last": "2026-11-27",
+    "rows": 6425,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
@@ -188,8 +188,8 @@
    "warn": [],
    "info": {
     "first": "2001-06-25",
-    "last": "2026-11-26",
-    "rows": 6368,
+    "last": "2026-11-27",
+    "rows": 6369,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
