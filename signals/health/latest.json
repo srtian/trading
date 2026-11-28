@@ -1,6 +1,6 @@
 {
- "asof": "2026-11-25",
- "status": "pass",
+ "asof": "2026-11-27",
+ "status": "warn",
  "blocked_by": [],
  "checks": [
   {
@@ -11,43 +11,47 @@
    "warn": [],
    "info": {
     "first": "1999-03-10",
-    "last": "2026-11-25",
-    "rows": 6973,
+    "last": "2026-11-27",
+    "rows": 6974,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.00010248272903878863
+    "tr_vs_vendor_max_annual_gap": 0.0001023844188970946
    },
    "required": true
   },
   {
    "key": "asset:csi300",
    "symbol": "510300.SS",
-   "status": "pass",
+   "status": "warn",
    "fail": [],
-   "warn": [],
+   "warn": [
+    "1 个缺失收盘价"
+   ],
    "info": {
     "first": "2012-05-04",
     "last": "2026-11-27",
     "rows": 3526,
     "exchange": "XSHG",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.00039335535597784244
+    "tr_vs_vendor_max_annual_gap": 0.00039343425444160474
    },
    "required": true
   },
   {
    "key": "asset:hsi",
    "symbol": "2800.HK",
-   "status": "pass",
+   "status": "warn",
    "fail": [],
-   "warn": [],
+   "warn": [
+    "1 个缺失收盘价"
+   ],
    "info": {
     "first": "2008-01-02",
     "last": "2026-11-27",
     "rows": 4659,
     "exchange": "XHKG",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.0011220255772106391
+    "tr_vs_vendor_max_annual_gap": 0.0011222089855733586
    },
    "required": true
   },
@@ -59,11 +63,11 @@
    "warn": [],
    "info": {
     "first": "2002-07-30",
-    "last": "2026-11-25",
-    "rows": 6122,
+    "last": "2026-11-27",
+    "rows": 6123,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 0.0004215000349245823
+    "tr_vs_vendor_max_annual_gap": 0.0004224512075372555
    },
    "required": true
   },
@@ -75,8 +79,8 @@
    "warn": [],
    "info": {
     "first": "2004-11-18",
-    "last": "2026-11-25",
-    "rows": 5540,
+    "last": "2026-11-27",
+    "rows": 5541,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "tr_vs_vendor_max_annual_gap": 3.3306690738754696e-15
@@ -91,11 +95,11 @@
    "warn": [],
    "info": {
     "first": "2007-05-30",
-    "last": "2026-11-25",
-    "rows": 4906,
+    "last": "2026-11-27",
+    "rows": 4907,
     "exchange": "XNYS",
     "sessions_behind": 0,
-    "tr_vs_vendor_max_annual_gap": 1.5347467315907082e-05
+    "tr_vs_vendor_max_annual_gap": 1.5050170302677301e-05
    },
    "required": true
   },
@@ -110,7 +114,7 @@
     "last": "2026-11-20",
     "rows": 6993,
     "exchange": "XNYS",
-    "sessions_behind": 3
+    "sessions_behind": 4
    },
    "required": true
   },
@@ -122,8 +126,8 @@
    "warn": [],
    "info": {
     "first": "2003-12-01",
-    "last": "2026-11-27",
-    "rows": 5979,
+    "last": "2026-11-28",
+    "rows": 5980,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
@@ -143,7 +147,7 @@
     "last": "2026-11-20",
     "rows": 6993,
     "exchange": "XNYS",
-    "sessions_behind": 3
+    "sessions_behind": 4
    },
    "required": true
   },
@@ -155,8 +159,8 @@
    "warn": [],
    "info": {
     "first": "2001-07-16",
-    "last": "2026-11-27",
-    "rows": 6425,
+    "last": "2026-11-28",
+    "rows": 6426,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
@@ -176,7 +180,7 @@
     "last": "2026-11-20",
     "rows": 6994,
     "exchange": "XNYS",
-    "sessions_behind": 3
+    "sessions_behind": 4
    },
    "required": true
   },
@@ -188,8 +192,8 @@
    "warn": [],
    "info": {
     "first": "2001-06-25",
-    "last": "2026-11-27",
-    "rows": 6369,
+    "last": "2026-11-28",
+    "rows": 6370,
     "exchange": "XNYS",
     "sessions_behind": 0,
     "overlap_days": 250,
