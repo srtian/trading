@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-21T13:42:37+00:00",
+ "generated_at": "2026-11-28T11:17:47+00:00",
  "config_sha256": "f599f6948264447f2f8645c9b1fb95ddbf5c01c75f48110ce18f2ea88a2d0e7c",
  "base_currency": "SGD",
  "period": [
   "2000-03-14",
-  "2026-11-20"
+  "2026-11-27"
  ],
  "labels": {
   "strategy": "主策略",
@@ -15,70 +15,70 @@
  "metrics": {
   "strategy": {
    "start": "2000-03-14",
-   "end": "2026-11-20",
-   "cagr": 0.058226,
-   "vol": 0.084825,
-   "sharpe": 0.642556,
-   "sortino": 0.788688,
+   "end": "2026-11-27",
+   "cagr": 0.058583,
+   "vol": 0.084842,
+   "sharpe": 0.646989,
+   "sortino": 0.7944,
    "max_drawdown": -0.140101,
-   "calmar": 0.4156,
-   "turnover_per_year": 2.154823,
-   "psr_gt0": 0.999478,
-   "avg_risky_weight": 0.593263,
+   "calmar": 0.418144,
+   "turnover_per_year": 2.153276,
+   "psr_gt0": 0.999519,
+   "avg_risky_weight": 0.593046,
    "sharpe_ci95": [
-    0.304473,
-    0.995953
+    0.30309,
+    1.005746
    ]
   },
   "no_trend": {
    "start": "2000-03-14",
-   "end": "2026-11-20",
-   "cagr": 0.059848,
-   "vol": 0.088084,
-   "sharpe": 0.592992,
-   "sortino": 0.864023,
+   "end": "2026-11-27",
+   "cagr": 0.060732,
+   "vol": 0.088218,
+   "sharpe": 0.601948,
+   "sortino": 0.878051,
    "max_drawdown": -0.260149,
-   "calmar": 0.230052,
-   "turnover_per_year": 0.403563,
-   "psr_gt0": 0.998859,
-   "avg_risky_weight": 0.865691,
+   "calmar": 0.233452,
+   "turnover_per_year": 0.403281,
+   "psr_gt0": 0.999026,
+   "avg_risky_weight": 0.865764,
    "sharpe_ci95": [
-    0.21423,
-    0.991012
+    0.200501,
+    0.999805
    ]
   },
   "const_avg": {
    "start": "2000-03-14",
-   "end": "2026-11-20",
-   "cagr": 0.039095,
-   "vol": 0.069463,
-   "sharpe": 0.474929,
-   "sortino": 0.657923,
-   "max_drawdown": -0.228748,
-   "calmar": 0.170907,
-   "turnover_per_year": 0.264674,
-   "psr_gt0": 0.992862,
-   "avg_risky_weight": 0.593572,
+   "end": "2026-11-27",
+   "cagr": 0.039825,
+   "vol": 0.069592,
+   "sharpe": 0.485115,
+   "sortino": 0.673117,
+   "max_drawdown": -0.228677,
+   "calmar": 0.174153,
+   "turnover_per_year": 0.264405,
+   "psr_gt0": 0.993859,
+   "avg_risky_weight": 0.593347,
    "sharpe_ci95": [
-    0.101266,
-    0.875231
+    0.098662,
+    0.891529
    ]
   },
   "buy_hold_first": {
    "start": "2000-03-14",
-   "end": "2026-11-20",
-   "cagr": 0.061818,
-   "vol": 0.261495,
-   "sharpe": 0.321418,
-   "sortino": 0.419175,
+   "end": "2026-11-27",
+   "cagr": 0.064422,
+   "vol": 0.261874,
+   "sharpe": 0.330698,
+   "sortino": 0.431948,
    "max_drawdown": -0.82269,
-   "calmar": 0.075141,
-   "turnover_per_year": 0.036106,
-   "psr_gt0": 0.951634,
+   "calmar": 0.078307,
+   "turnover_per_year": 0.036081,
+   "psr_gt0": 0.956326,
    "avg_risky_weight": 1.0,
    "sharpe_ci95": [
-    -0.023467,
-    0.684988
+    -0.000612,
+    0.689438
    ]
   }
  },
@@ -94,31 +94,31 @@
    "id": "H2",
    "claim": "趋势层不显著降低夏普（夏普差的 95% 置信区间包含 0）",
    "value": {
-    "diff": 0.049567,
+    "diff": 0.045044,
     "ci95": [
-     -0.249506,
-     0.340879
+     -0.224302,
+     0.362395
     ],
-    "p_le_0": 0.3795,
-    "n": 6713
+    "p_le_0": 0.381,
+    "n": 6717
    },
    "result": "通过",
-   "detail": "夏普差 +0.05，95% 区间 [-0.25, +0.34]"
+   "detail": "夏普差 +0.05，95% 区间 [-0.22, +0.36]"
   },
   {
    "id": "H3",
    "claim": "择时本身有价值（夏普高于恒定平均仓位，区间下沿 > 0）",
    "value": {
-    "diff": 0.167639,
+    "diff": 0.161885,
     "ci95": [
-     -0.166357,
-     0.49305
+     -0.144524,
+     0.504883
     ],
-    "p_le_0": 0.1695,
-    "n": 6713
+    "p_le_0": 0.174,
+    "n": 6717
    },
    "result": "方向一致但不显著",
-   "detail": "夏普差 +0.17，95% 区间 [-0.17, +0.49]"
+   "detail": "夏普差 +0.16，95% 区间 [-0.14, +0.50]"
   }
  ],
  "segments": [
@@ -135,9 +135,9 @@
     "cagr": 0.014711
    },
    "const_avg": {
-    "sharpe": -0.1816,
-    "max_drawdown": -0.228748,
-    "cagr": -0.006429
+    "sharpe": -0.181649,
+    "max_drawdown": -0.228677,
+    "cagr": -0.006428
    }
   },
   {
@@ -153,27 +153,27 @@
     "cagr": 0.09576
    },
    "const_avg": {
-    "sharpe": 1.325806,
-    "max_drawdown": -0.046988,
-    "cagr": 0.058543
+    "sharpe": 1.325872,
+    "max_drawdown": -0.046983,
+    "cagr": 0.058523
    }
   },
   {
    "period": "2018-2026",
    "strategy": {
-    "sharpe": 0.600313,
+    "sharpe": 0.611679,
     "max_drawdown": -0.101001,
-    "cagr": 0.078237
+    "cagr": 0.079283
    },
    "no_trend": {
-    "sharpe": 0.478939,
+    "sharpe": 0.503991,
     "max_drawdown": -0.239386,
-    "cagr": 0.068594
+    "cagr": 0.071252
    },
    "const_avg": {
-    "sharpe": 0.596095,
-    "max_drawdown": -0.149158,
-    "cagr": 0.064149
+    "sharpe": 0.624776,
+    "max_drawdown": -0.149114,
+    "cagr": 0.066359
    }
   }
  ],
@@ -187,10 +187,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.12, buffer=0.2, attenuation=True",
-    "sharpe": 0.694491,
-    "cagr": 0.062168,
+    "sharpe": 0.70003,
+    "cagr": 0.062625,
     "max_drawdown": -0.132372,
-    "turnover_per_year": 1.744276
+    "turnover_per_year": 1.743024
    },
    {
     "params": {
@@ -199,10 +199,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.1, buffer=0.2, attenuation=True",
-    "sharpe": 0.690065,
-    "cagr": 0.059278,
+    "sharpe": 0.69491,
+    "cagr": 0.05965,
     "max_drawdown": -0.12205,
-    "turnover_per_year": 1.853715
+    "turnover_per_year": 1.852385
    },
    {
     "params": {
@@ -211,10 +211,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.14, buffer=0.2, attenuation=True",
-    "sharpe": 0.684255,
-    "cagr": 0.063076,
+    "sharpe": 0.690515,
+    "cagr": 0.063621,
     "max_drawdown": -0.147243,
-    "turnover_per_year": 1.619665
+    "turnover_per_year": 1.618503
    },
    {
     "params": {
@@ -223,10 +223,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.12, buffer=0.1, attenuation=True",
-    "sharpe": 0.663519,
-    "cagr": 0.061138,
+    "sharpe": 0.667697,
+    "cagr": 0.06148,
     "max_drawdown": -0.140101,
-    "turnover_per_year": 2.428867
+    "turnover_per_year": 2.427124
    },
    {
     "params": {
@@ -235,10 +235,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.14, buffer=0.1, attenuation=True",
-    "sharpe": 0.661851,
-    "cagr": 0.063023,
+    "sharpe": 0.666553,
+    "cagr": 0.063431,
     "max_drawdown": -0.157821,
-    "turnover_per_year": 2.345524
+    "turnover_per_year": 2.343841
    },
    {
     "params": {
@@ -247,10 +247,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.1, buffer=0.1, attenuation=True",
-    "sharpe": 0.661255,
-    "cagr": 0.05826,
+    "sharpe": 0.664917,
+    "cagr": 0.058536,
     "max_drawdown": -0.130886,
-    "turnover_per_year": 2.485457
+    "turnover_per_year": 2.483673
    },
    {
     "params": {
@@ -259,10 +259,10 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.14, buffer=0.2, attenuation=False",
-    "sharpe": 0.656227,
-    "cagr": 0.060381,
+    "sharpe": 0.662696,
+    "cagr": 0.060942,
     "max_drawdown": -0.147243,
-    "turnover_per_year": 1.417093
+    "turnover_per_year": 1.416076
    },
    {
     "params": {
@@ -271,10 +271,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.12, buffer=0.05, attenuation=True",
-    "sharpe": 0.652088,
-    "cagr": 0.060923,
+    "sharpe": 0.655607,
+    "cagr": 0.061208,
     "max_drawdown": -0.138891,
-    "turnover_per_year": 2.857786
+    "turnover_per_year": 2.855735
    },
    {
     "params": {
@@ -283,10 +283,10 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.12, buffer=0.2, attenuation=False",
-    "sharpe": 0.648031,
-    "cagr": 0.057353,
+    "sharpe": 0.653853,
+    "cagr": 0.057825,
     "max_drawdown": -0.132372,
-    "turnover_per_year": 1.500901
+    "turnover_per_year": 1.499823
    },
    {
     "params": {
@@ -295,10 +295,10 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.14, buffer=0.1, attenuation=False",
-    "sharpe": 0.64732,
-    "cagr": 0.061151,
+    "sharpe": 0.652242,
+    "cagr": 0.061576,
     "max_drawdown": -0.157821,
-    "turnover_per_year": 2.122002
+    "turnover_per_year": 2.120479
    },
    {
     "params": {
@@ -307,10 +307,10 @@
      "trend.attenuation": true
     },
     "label": "vol_target=0.1, buffer=0.05, attenuation=True",
-    "sharpe": 0.6466,
-    "cagr": 0.057728,
+    "sharpe": 0.649686,
+    "cagr": 0.057958,
     "max_drawdown": -0.133652,
-    "turnover_per_year": 2.868528
+    "turnover_per_year": 2.866469
    },
    {
     "params": {
@@ -319,22 +319,10 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.1, buffer=0.2, attenuation=False",
-    "sharpe": 0.644412,
-    "cagr": 0.053904,
+    "sharpe": 0.649604,
+    "cagr": 0.054288,
     "max_drawdown": -0.12278,
-    "turnover_per_year": 1.574696
-   },
-   {
-    "params": {
-     "sizing.vol_target": 0.14,
-     "rebalance.buffer": 0.05,
-     "trend.attenuation": true
-    },
-    "label": "vol_target=0.14, buffer=0.05, attenuation=True",
-    "sharpe": 0.642732,
-    "cagr": 0.062249,
-    "max_drawdown": -0.158282,
-    "turnover_per_year": 2.819926
+    "turnover_per_year": 1.573566
    },
    {
     "params": {
@@ -343,10 +331,22 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.12, buffer=0.1, attenuation=False",
-    "sharpe": 0.642556,
-    "cagr": 0.058226,
+    "sharpe": 0.646989,
+    "cagr": 0.058583,
     "max_drawdown": -0.140101,
-    "turnover_per_year": 2.154823
+    "turnover_per_year": 2.153276
+   },
+   {
+    "params": {
+     "sizing.vol_target": 0.14,
+     "rebalance.buffer": 0.05,
+     "trend.attenuation": true
+    },
+    "label": "vol_target=0.14, buffer=0.05, attenuation=True",
+    "sharpe": 0.646689,
+    "cagr": 0.06259,
+    "max_drawdown": -0.158282,
+    "turnover_per_year": 2.817902
    },
    {
     "params": {
@@ -355,10 +355,10 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.1, buffer=0.1, attenuation=False",
-    "sharpe": 0.633701,
-    "cagr": 0.054092,
+    "sharpe": 0.637671,
+    "cagr": 0.054382,
     "max_drawdown": -0.121881,
-    "turnover_per_year": 2.166157
+    "turnover_per_year": 2.164603
    },
    {
     "params": {
@@ -367,10 +367,10 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.14, buffer=0.05, attenuation=False",
-    "sharpe": 0.632721,
-    "cagr": 0.06067,
+    "sharpe": 0.636887,
+    "cagr": 0.061028,
     "max_drawdown": -0.158282,
-    "turnover_per_year": 2.601302
+    "turnover_per_year": 2.599435
    },
    {
     "params": {
@@ -379,10 +379,10 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.12, buffer=0.05, attenuation=False",
-    "sharpe": 0.627483,
-    "cagr": 0.057581,
+    "sharpe": 0.631244,
+    "cagr": 0.05788,
     "max_drawdown": -0.138891,
-    "turnover_per_year": 2.597557
+    "turnover_per_year": 2.595693
    },
    {
     "params": {
@@ -391,18 +391,18 @@
      "trend.attenuation": false
     },
     "label": "vol_target=0.1, buffer=0.05, attenuation=False",
-    "sharpe": 0.620529,
-    "cagr": 0.053549,
+    "sharpe": 0.6239,
+    "cagr": 0.053791,
     "max_drawdown": -0.121447,
-    "turnover_per_year": 2.544691
+    "turnover_per_year": 2.542864
    }
   ],
   "best": "vol_target=0.12, buffer=0.2, attenuation=True",
-  "sharpe_max": 0.694491,
-  "sharpe_median": 0.647675,
-  "sharpe_min": 0.620529,
-  "pbo": 0.322688,
-  "dsr": 0.999605
+  "sharpe_max": 0.70003,
+  "sharpe_median": 0.653048,
+  "sharpe_min": 0.6239,
+  "pbo": 0.275835,
+  "dsr": 0.999638
  },
  "candidates": [
   {
@@ -413,20 +413,20 @@
    "markets": [
     {
      "market": "SPY",
-     "sharpe_base": 0.447823,
-     "sharpe_candidate": 0.44617,
+     "sharpe_base": 0.463016,
+     "sharpe_candidate": 0.46136,
      "improves": false
     },
     {
      "market": "EFA",
-     "sharpe_base": 0.371517,
-     "sharpe_candidate": 0.366832,
+     "sharpe_base": 0.384177,
+     "sharpe_candidate": 0.380642,
      "improves": false
     },
     {
      "market": "EWJ",
-     "sharpe_base": 0.166703,
-     "sharpe_candidate": 0.142381,
+     "sharpe_base": 0.184749,
+     "sharpe_candidate": 0.158851,
      "improves": false
     }
    ],
@@ -440,20 +440,20 @@
    "markets": [
     {
      "market": "SPY",
-     "sharpe_base": 0.447823,
-     "sharpe_candidate": 0.413028,
+     "sharpe_base": 0.463016,
+     "sharpe_candidate": 0.427015,
      "improves": false
     },
     {
      "market": "EFA",
-     "sharpe_base": 0.371517,
-     "sharpe_candidate": 0.37419,
+     "sharpe_base": 0.384177,
+     "sharpe_candidate": 0.387891,
      "improves": true
     },
     {
      "market": "EWJ",
-     "sharpe_base": 0.166703,
-     "sharpe_candidate": 0.157907,
+     "sharpe_base": 0.184749,
+     "sharpe_candidate": 0.174821,
      "improves": false
     }
    ],
@@ -464,15 +464,15 @@
   "rule": "200 日均线 + 5 日确认 + 均线下行转国库券",
   "fee": 0.0065,
   "start": "2015-06-12",
-  "simulated_cagr": 0.131403,
+  "simulated_cagr": 0.134615,
   "simulated_exposure_now": 0.5,
   "period": [
    "2015-06-15",
-   "2026-11-20"
+   "2026-11-27"
   ],
-  "actual_cagr": 0.105944,
-  "gap": 0.025459,
-  "daily_corr": 0.925203,
+  "actual_cagr": 0.10895,
+  "gap": 0.025666,
+  "daily_corr": 0.92551,
   "status": "fail",
   "threshold": 0.005,
   "series": {
@@ -1052,7 +1052,8 @@
     "2026-10-28",
     "2026-11-04",
     "2026-11-11",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-25"
    ],
    "simulated": [
     0.99501,
@@ -1630,7 +1631,8 @@
     4.7509,
     4.52992,
     4.51906,
-    4.31643
+    4.31643,
+    4.19069
    ],
    "actual": [
     0.99798,
@@ -2208,7 +2210,8 @@
     3.76764,
     3.5958,
     3.58701,
-    3.42767
+    3.42767,
+    3.22815
    ]
   }
  },
@@ -2223,7 +2226,7 @@
     "Cederburg et al. (2020) On the Performance of Volatility-Managed Portfolios（反方）",
     "Harvey et al. (2018) The Impact of Volatility Targeting"
    ],
-   "evidence": "无趋势版本：夏普 0.59，波动 8.8%（目标 12%）。",
+   "evidence": "无趋势版本：夏普 0.60，波动 8.8%（目标 12%）。",
    "caveat": "目标波动只决定平均仓位，不能保证收益。"
   },
   {
@@ -2235,7 +2238,7 @@
     "Moskowitz, Ooi, Pedersen (2012) Time Series Momentum",
     "Hurst, Ooi, Pedersen (2017) A Century of Evidence on Trend-Following Investing"
    ],
-   "evidence": "最大回撤 -14.0% vs 无趋势 -26.0%；夏普 0.64 vs 0.59。H1 通过 H2 通过 H3 方向一致但不显著",
+   "evidence": "最大回撤 -14.0% vs 无趋势 -26.0%；夏普 0.65 vs 0.60。H1 通过 H2 通过 H3 方向一致但不显著",
    "caveat": "快速 V 型反弹中会错过一部分涨幅。"
   },
   {
@@ -2258,7 +2261,7 @@
     "Bailey et al. (2017) The Probability of Backtest Overfitting",
     "Bailey & López de Prado (2014) The Deflated Sharpe Ratio"
    ],
-   "evidence": "18 组参数夏普 0.62～0.69（中位 0.65）；PBO 32%，DSR 100%。",
+   "evidence": "18 组参数夏普 0.62～0.70（中位 0.65）；PBO 28%，DSR 100%。",
    "caveat": "PBO 高而夏普平稳时，说明“挑最优”无意义，应保留默认参数。"
   },
   {
@@ -2267,7 +2270,7 @@
    "status": "未在所有样本外市场同向，不采纳",
    "hypothesis": "在主样本中观察到改善，需要在未使用过的市场上同向才采纳。",
    "literature": [],
-   "evidence": "SPY 0.45→0.45；EFA 0.37→0.37；EWJ 0.17→0.14",
+   "evidence": "SPY 0.46→0.46；EFA 0.38→0.38；EWJ 0.18→0.16",
    "caveat": "按预注册规则，改动必须登记在变更记录里。"
   },
   {
@@ -2276,7 +2279,7 @@
    "status": "未在所有样本外市场同向，不采纳",
    "hypothesis": "在主样本中观察到改善，需要在未使用过的市场上同向才采纳。",
    "literature": [],
-   "evidence": "SPY 0.45→0.41；EFA 0.37→0.37；EWJ 0.17→0.16",
+   "evidence": "SPY 0.46→0.43；EFA 0.38→0.39；EWJ 0.18→0.17",
    "caveat": "按预注册规则，改动必须登记在变更记录里。"
   },
   {
@@ -2287,7 +2290,7 @@
    "literature": [
     "Pacer NASDAQ-100 Trendpilot Index 方法说明"
    ],
-   "evidence": "2015-06-15 起：模拟年化 13.14%，实盘 10.59%，差 +2.55%（门槛 ±0.5%）；日收益相关 0.925。",
+   "evidence": "2015-06-15 起：模拟年化 13.46%，实盘 10.89%，差 +2.57%（门槛 ±0.5%）；日收益相关 0.926。",
    "caveat": "规则为依据公开说明的简化实现，与指数公司的细节可能有出入。"
   },
   {
